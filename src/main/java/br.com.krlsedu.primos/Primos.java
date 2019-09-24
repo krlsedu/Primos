@@ -18,26 +18,26 @@ public class Primos {
     }
 
     public static void testaSePrimo() {
-        long ehPrimo = 0L, ultimoPrimo = 3L, numero = 3L, num, y = 0L, z = 3L;
+        long ultimoPrimo = 3L, numero = 3L, num, y = 0L, z = 3L;
+        boolean ehPrimo;
         int i;
         StringBuilder listaNumeros = new StringBuilder("3");
         while (true) {
             numero += 2;
-            ehPrimo = 1L;
+            ehPrimo = true;
             String[] nuns = listaNumeros.toString().split(",");
             i = 0;
-            while (ehPrimo == 1L && i < nuns.length && Integer.parseInt(nuns[i]) <= (Math.sqrt(numero))) {
+            while (ehPrimo && i < nuns.length && Integer.parseInt(nuns[i]) <= (Math.sqrt(numero))) {
                 num = Long.parseLong(nuns[i]);
                 if (numero % num == 0) {
-                    ehPrimo = 0L;
+                    ehPrimo = false;
                 }
                 i++;
             }
-            if (ehPrimo == 1) {
+            if (ehPrimo) {
                 listaNumeros.append(",").append(numero);
                 ultimoPrimo = numero;
                 z++;
-                System.out.println(ultimoPrimo);
             }
             if (z == 1000) {
                 System.out.println(ultimoPrimo);
